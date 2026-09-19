@@ -1,0 +1,30 @@
+resources:
+  jobs:
+    New_Job_2026_09_19_13_31_05:
+      name: New Job 2026-09-19 13:31:05
+      trigger:
+        pause_status: PAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      tasks:
+        - task_key: Landing_to_Bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/raniltonjr07@gmail.com/CineData-Analytics/Landing_to_Bronze
+            source: WORKSPACE
+        - task_key: Bronze_to_Silver
+          depends_on:
+            - task_key: Landing_to_Bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/raniltonjr07@gmail.com/CineData-Analytics/Bronze_to_Silver
+            source: WORKSPACE
+        - task_key: Silver_to_Gold
+          depends_on:
+            - task_key: Bronze_to_Silver
+          notebook_task:
+            notebook_path: /Workspace/Users/raniltonjr07@gmail.com/CineData-Analytics/Silver_to_Gold
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
+
