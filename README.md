@@ -46,3 +46,5 @@ O arquivo `job.yaml` contém a configuração do Job.
 - `job.yaml`: configuração do Workflow.
 - `job_execucao_sucesso.png`: print da execução do Workflow.
 
+**OBS:** O agendamento diário do Workflow foi pausado após a execução bem-sucedida dos testes para evitar novas execuções automáticas desnecessárias e o consumo de recursos do ambiente Databricks. O Job permanece configurado e pode ser executado manualmente. O arquivo `job.yaml` foi mantido no repositório para documentar sua configuração.
+
